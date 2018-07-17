@@ -33,11 +33,11 @@ int hmac_sha_begin(enum hmac_hash hash, hmac_ctx cx[1])
     memset(cx, 0, sizeof(hmac_ctx));
     switch(hash)
     {
-#ifdef SHA_1
+#ifdef _SHA1_H
     case HMAC_SHA1:
-        cx->f_begin = sha1_begin;
-        cx->f_hash  = sha1_hash;
-        cx->f_end   = sha1_end;
+        cx->f_begin = (hf_begin*)sha1_begin;
+        cx->f_hash  = (hf_hash*)sha1_hash;
+        cx->f_end   = (hf_end*)sha1_end;
         cx->input_len = SHA1_BLOCK_SIZE;
         cx->output_len = SHA1_DIGEST_SIZE;
         break;
@@ -53,9 +53,9 @@ int hmac_sha_begin(enum hmac_hash hash, hmac_ctx cx[1])
 #endif
 #ifdef SHA_256
     case HMAC_SHA256:
-        cx->f_begin = sha256_begin;
-        cx->f_hash  = sha256_hash;
-        cx->f_end   = sha256_end;
+        cx->f_begin = (hf_begin*)sha256_begin;
+        cx->f_hash  = (hf_hash*)sha256_hash;
+        cx->f_end   = (hf_end*)sha256_end;
         cx->input_len = SHA256_BLOCK_SIZE;
         cx->output_len = SHA256_DIGEST_SIZE;
         break;

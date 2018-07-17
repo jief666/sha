@@ -49,24 +49,24 @@ extern "C"
 enum hmac_hash  
 { 
 #ifdef _SHA1_H
-    HMAC_SHA1, 
+    HMAC_SHA1 = 1,
 #endif
 #ifdef _SHA2_H
 # ifdef SHA_224 
-    HMAC_SHA224, 
+    HMAC_SHA224 = 224,
 # endif
 # ifdef SHA_256
-    HMAC_SHA256, 
+    HMAC_SHA256 = 256,
 # endif
 # ifdef SHA_384
-    HMAC_SHA384, 
+    HMAC_SHA384 = 384,
 # endif
 # ifdef SHA_512
-    HMAC_SHA512, 
-    HMAC_SHA512_256,
-    HMAC_SHA512_224,
-    HMAC_SHA512_192,
-    HMAC_SHA512_128
+    HMAC_SHA512 = 512,
+    HMAC_SHA512_256 = 512256,
+    HMAC_SHA512_224 = 512224,
+    HMAC_SHA512_192 = 512192,
+    HMAC_SHA512_128 = 512128
 # endif
 #endif
 };

@@ -32,9 +32,9 @@ Issue Date: 20/12/2007
 
 /* define the hash functions that you need  */
 /* define for 64-bit SHA384 and SHA512      */
-#define SHA_64BIT
+//#define SHA_64BIT
 #define SHA_2   /* for dynamic hash length  */
-#define SHA_224
+//#define SHA_224
 #define SHA_256
 #ifdef SHA_64BIT
 #  define SHA_384
@@ -42,7 +42,7 @@ Issue Date: 20/12/2007
 #  define NEED_uint64_t
 #endif
 
-#define SHA2_MAX_DIGEST_SIZE   64
+//#define SHA2_MAX_DIGEST_SIZE   64
 #define SHA2_MAX_BLOCK_SIZE   128
 
 #include "brg_types.h"
@@ -88,6 +88,7 @@ VOID_RETURN sha224(unsigned char hval[], const unsigned char data[], unsigned lo
 VOID_RETURN sha256_begin(sha256_ctx ctx[1]);
 VOID_RETURN sha256_hash(const unsigned char data[], unsigned long len, sha256_ctx ctx[1]);
 VOID_RETURN sha256_end(unsigned char hval[], sha256_ctx ctx[1]);
+VOID_RETURN sha_end1(unsigned char hval[], sha256_ctx ctx[1], const unsigned int hlen);
 VOID_RETURN sha256(unsigned char hval[], const unsigned char data[], unsigned long len);
 
 #ifndef SHA_64BIT
