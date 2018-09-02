@@ -31,10 +31,9 @@ extern "C"
 {
 #endif
 
-#if !defined(_SHA1_H) && !defined(_SHA2_H)
-#  include "sha1.h"
-#  include "sha2.h"
-#endif
+#include "sha1.h"
+#include "sha2.h"
+
 
 #if !defined(_SHA2_H)
 #define HMAC_BLOCK_SIZE      SHA1_BLOCK_SIZE
